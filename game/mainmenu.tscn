@@ -1,0 +1,192 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://addons/github-integration/fonts/W95FA.otf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=1]
+size = 42
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.831373, 0.815686, 0.784314, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.831373, 0.815686, 0.784314, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.0313726, 0.152941, 0.960784, 1 )
+corner_detail = 11
+
+[sub_resource type="DynamicFont" id=2]
+size = 100
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 35
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+shadow_size = 7
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.392157, 0.392157, 0.392157, 1 )
+shadow_size = 17
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.831373, 0.815686, 0.784314, 1 )
+shadow_size = 4
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.00392157, 0.509804, 0.505882, 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 608.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+visible = false
+margin_right = 1024.0
+margin_bottom = 608.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+visible = false
+margin_right = 1024.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+visible = false
+margin_top = 126.0
+margin_right = 1024.0
+margin_bottom = 176.0
+rect_min_size = Vector2( 1024, 50 )
+rect_pivot_offset = Vector2( 0, 25 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]Tech Support Sim[center]"
+text = "Tech Support Sim"
+scroll_active = false
+
+[node name="Popupmockcontainer" type="MarginContainer" parent="."]
+margin_left = 100.0
+margin_top = 50.0
+margin_right = 924.0
+margin_bottom = 558.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="Popupmockcontainer"]
+margin_right = 824.0
+margin_bottom = 508.0
+custom_styles/panel = SubResource( 6 )
+
+[node name="ColorRect" type="ColorRect" parent="Popupmockcontainer"]
+visible = false
+margin_right = 824.0
+margin_bottom = 508.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.831373, 0.815686, 0.784314, 1 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Popupmockcontainer"]
+margin_right = 824.0
+margin_bottom = 508.0
+
+[node name="LeftSide border" type="ColorRect" parent="Popupmockcontainer/HBoxContainer"]
+margin_bottom = 508.0
+size_flags_vertical = 3
+color = Color( 0.831373, 0.815686, 0.784314, 1 )
+
+[node name="Popupmock" type="VBoxContainer" parent="Popupmockcontainer/HBoxContainer"]
+margin_left = 4.0
+margin_right = 820.0
+margin_bottom = 508.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Top border" type="ColorRect" parent="Popupmockcontainer/HBoxContainer/Popupmock"]
+margin_right = 816.0
+size_flags_horizontal = 3
+color = Color( 0.831373, 0.815686, 0.784314, 1 )
+
+[node name="TopBlue line no text" type="HBoxContainer" parent="Popupmockcontainer/HBoxContainer/Popupmock"]
+margin_top = 4.0
+margin_right = 816.0
+margin_bottom = 28.0
+
+[node name="blue" type="ColorRect" parent="Popupmockcontainer/HBoxContainer/Popupmock/TopBlue line no text"]
+margin_right = 794.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.0313726, 0.152941, 0.960784, 1 )
+
+[node name="Fake exit button" type="Button" parent="Popupmockcontainer/HBoxContainer/Popupmock/TopBlue line no text"]
+margin_left = 798.0
+margin_right = 816.0
+margin_bottom = 24.0
+size_flags_vertical = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_styles/normal = SubResource( 5 )
+text = "X"
+
+[node name="Label" type="Label" parent="Popupmockcontainer/HBoxContainer/Popupmock"]
+margin_top = 32.0
+margin_right = 816.0
+margin_bottom = 268.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Tech Support Sim"
+align = 1
+valign = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Popupmockcontainer/HBoxContainer/Popupmock"]
+margin_top = 272.0
+margin_right = 816.0
+margin_bottom = 508.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button container" type="MarginContainer" parent="Popupmockcontainer/HBoxContainer/Popupmock/VBoxContainer2"]
+margin_left = 200.0
+margin_right = 616.0
+margin_bottom = 206.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Play Button" type="Button" parent="Popupmockcontainer/HBoxContainer/Popupmock/VBoxContainer2/Button container"]
+margin_right = 416.0
+margin_bottom = 206.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/normal = SubResource( 4 )
+text = "Play Game"
+
+[node name="RIght side border" type="ColorRect" parent="Popupmockcontainer/HBoxContainer"]
+margin_left = 824.0
+margin_right = 824.0
+margin_bottom = 508.0
+size_flags_vertical = 3
+color = Color( 0.831373, 0.815686, 0.784314, 1 )
