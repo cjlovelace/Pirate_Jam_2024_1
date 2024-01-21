@@ -52,14 +52,14 @@ color = Color( 0.00392157, 0.509804, 0.505882, 1 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 margin_right = 1024.0
-margin_bottom = 608.0
+margin_bottom = 600.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 visible = false
 margin_right = 1024.0
-margin_bottom = 608.0
+margin_bottom = 600.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -131,16 +131,17 @@ color = Color( 0.831373, 0.815686, 0.784314, 1 )
 margin_top = 4.0
 margin_right = 816.0
 margin_bottom = 28.0
+custom_constants/separation = -10
 
 [node name="blue" type="ColorRect" parent="Popupmockcontainer/HBoxContainer/Popupmock/TopBlue line no text"]
-margin_right = 794.0
+margin_right = 808.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0.0313726, 0.152941, 0.960784, 1 )
 
 [node name="Fake exit button" type="Button" parent="Popupmockcontainer/HBoxContainer/Popupmock/TopBlue line no text"]
-margin_left = 798.0
+margin_left = 792.0
 margin_right = 816.0
 margin_bottom = 24.0
 size_flags_vertical = 3
@@ -168,14 +169,17 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Button container" type="MarginContainer" parent="Popupmockcontainer/HBoxContainer/Popupmock/VBoxContainer2"]
-margin_left = 200.0
-margin_right = 616.0
-margin_bottom = 206.0
+margin_right = 816.0
+margin_bottom = 236.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_constants/margin_right = 200
+custom_constants/margin_left = 200
+custom_constants/margin_bottom = 30
 
 [node name="Play Button" type="Button" parent="Popupmockcontainer/HBoxContainer/Popupmock/VBoxContainer2/Button container"]
-margin_right = 416.0
+margin_left = 200.0
+margin_right = 616.0
 margin_bottom = 206.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
