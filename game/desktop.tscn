@@ -1,6 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://addons/github-integration/fonts/W95FA.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://spaceship.png" type="Texture" id=3]
+[ext_resource path="res://StartButton.gd" type="Script" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 outline_color = Color( 0, 0, 0, 1 )
@@ -22,13 +24,8 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=7]
 bg_color = Color( 0.831373, 0.815686, 0.784314, 1 )
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color( 0.54902, 0.54902, 0.54902, 1 )
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 1, 1, 1, 1 )
@@ -59,8 +56,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 0
 
-[node name="Button" type="Button" parent="HBoxContainer"]
-margin_right = 102.0
+[node name="StartButton" type="MenuButton" parent="HBoxContainer"]
+margin_right = 113.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -72,12 +69,17 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 custom_styles/hover = SubResource( 5 )
 custom_styles/pressed = SubResource( 6 )
-custom_styles/normal = SubResource( 2 )
+custom_styles/normal = SubResource( 7 )
 text = "START"
+icon = ExtResource( 3 )
+flat = false
+expand_icon = true
+items = [ "Return to main menu", ExtResource( 3 ), 0, false, false, 0, 0, null, "", false, "Quit", ExtResource( 3 ), 0, false, false, 1, 0, null, "", false ]
+script = ExtResource( 5 )
 
 [node name="Label" type="Label" parent="HBoxContainer"]
-margin_left = 102.0
-margin_right = 204.0
+margin_left = 113.0
+margin_right = 227.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -88,14 +90,15 @@ align = 1
 valign = 1
 
 [node name="Panel" type="Panel" parent="HBoxContainer"]
-margin_left = 204.0
-margin_right = 307.0
+margin_left = 227.0
+margin_right = 341.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 4 )
 
 [node name="Panel2" type="Panel" parent="HBoxContainer"]
+visible = false
 margin_left = 307.0
 margin_right = 409.0
 margin_bottom = 32.0
@@ -104,47 +107,47 @@ size_flags_vertical = 3
 custom_styles/panel = SubResource( 4 )
 
 [node name="Panel3" type="Panel" parent="HBoxContainer"]
-margin_left = 409.0
-margin_right = 512.0
+margin_left = 341.0
+margin_right = 455.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 4 )
 
 [node name="Panel4" type="Panel" parent="HBoxContainer"]
-margin_left = 512.0
-margin_right = 614.0
+margin_left = 455.0
+margin_right = 568.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 4 )
 
 [node name="Panel5" type="Panel" parent="HBoxContainer"]
-margin_left = 614.0
-margin_right = 716.0
+margin_left = 568.0
+margin_right = 682.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 4 )
 
 [node name="Panel6" type="Panel" parent="HBoxContainer"]
-margin_left = 716.0
-margin_right = 819.0
+margin_left = 682.0
+margin_right = 796.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 4 )
 
 [node name="Panel7" type="Panel" parent="HBoxContainer"]
-margin_left = 819.0
-margin_right = 921.0
+margin_left = 796.0
+margin_right = 910.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 4 )
 
 [node name="Label2" type="Label" parent="HBoxContainer"]
-margin_left = 921.0
+margin_left = 910.0
 margin_right = 1024.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
@@ -154,3 +157,9 @@ custom_styles/normal = SubResource( 3 )
 text = "7:55 PM"
 align = 1
 valign = 1
+
+[node name="StartMenu" type="VBoxContainer" parent="."]
+visible = false
+margin_top = 272.0
+margin_right = 224.0
+margin_bottom = 600.0
