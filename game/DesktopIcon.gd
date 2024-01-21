@@ -23,5 +23,5 @@ func _input(event):
 	if event is InputEventMouseButton and event.doubleclick and event.button_index == BUTTON_LEFT:
 		if MouseOver:
 			print("Icon Clicked")
-			popup.popup()
+			popup.popup_centered()
 

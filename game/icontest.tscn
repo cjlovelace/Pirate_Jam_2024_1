@@ -6,10 +6,10 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_left = 311.0
-margin_top = 158.0
-margin_right = 351.0
-margin_bottom = 198.0
+margin_left = 16.0
+margin_top = 18.0
+margin_right = 80.0
+margin_bottom = 82.0
 texture = ExtResource( 2 )
 script = ExtResource( 1 )
 idle_texture = ExtResource( 2 )
@@ -17,10 +17,10 @@ click_texture = ExtResource( 2 )
 
 [node name="Window1" type="WindowDialog" parent="TextureRect"]
 visible = true
-margin_left = 248.0
-margin_top = -6.0
-margin_right = 464.0
-margin_bottom = 213.0
+margin_left = 462.0
+margin_top = 215.0
+margin_right = 962.0
+margin_bottom = 550.0
 popup_exclusive = true
 window_title = "Pop Up"
 
