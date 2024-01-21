@@ -20,7 +20,7 @@ func _on_TextureRect_mouse_exited():
 	MouseOver = false
 	
 func _input(event):
-	if event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT:
+	if event is InputEventMouseButton and event.doubleclick and event.button_index == BUTTON_LEFT:
 		if MouseOver:
 			print("Icon Clicked")
 			popup.popup()
