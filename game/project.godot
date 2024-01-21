@@ -39,6 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="GamJamJan2023"
+run/main_scene="res://mainmenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
