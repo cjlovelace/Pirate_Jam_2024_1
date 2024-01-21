@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://DesktopIcon.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 16.0
+margin_top = 18.0
+margin_right = 80.0
+margin_bottom = 82.0
+texture = ExtResource( 2 )
+script = ExtResource( 1 )
+idle_texture = ExtResource( 2 )
+click_texture = ExtResource( 2 )
+
+[node name="Window1" type="WindowDialog" parent="TextureRect"]
+visible = true
+margin_left = 462.0
+margin_top = 215.0
+margin_right = 962.0
+margin_bottom = 550.0
+popup_exclusive = true
+window_title = "Pop Up"
+resizable = true
+
+[connection signal="mouse_entered" from="TextureRect" to="TextureRect" method="_on_TextureRect_mouse_entered"]
+[connection signal="mouse_exited" from="TextureRect" to="TextureRect" method="_on_TextureRect_mouse_exited"]
