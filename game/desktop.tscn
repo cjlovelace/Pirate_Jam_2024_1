@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://addons/github-integration/fonts/W95FA.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Clock.gd" type="Script" id=2]
 [ext_resource path="res://spaceship.png" type="Texture" id=3]
 [ext_resource path="res://StartButton.gd" type="Script" id=5]
 
@@ -146,7 +147,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 4 )
 
-[node name="Label2" type="Label" parent="HBoxContainer"]
+[node name="Clock" type="Label" parent="HBoxContainer"]
 margin_left = 910.0
 margin_right = 1024.0
 margin_bottom = 32.0
@@ -157,6 +158,7 @@ custom_styles/normal = SubResource( 3 )
 text = "7:55 PM"
 align = 1
 valign = 1
+script = ExtResource( 2 )
 
 [node name="StartMenu" type="VBoxContainer" parent="."]
 visible = false
