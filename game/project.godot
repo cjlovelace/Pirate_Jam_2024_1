@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Ball",
+"language": "GDScript",
+"path": "res://Scenes/Breakout/Ball.gd"
+}, {
 "base": "HBoxContainer",
 "class": "ContributorClass",
 "language": "GDScript",
@@ -40,6 +45,7 @@ _global_script_classes=[ {
 "path": "res://addons/github-integration/scripts/RepositoryItem.gd"
 } ]
 _global_script_class_icons={
+"Ball": "",
 "ContributorClass": "",
 "DesktopIcon": "",
 "GistItem": "",
