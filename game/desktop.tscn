@@ -191,7 +191,7 @@ margin_top = 215.0
 margin_right = 962.0
 margin_bottom = 550.0
 popup_exclusive = true
-window_title = "Pop Up"
+window_title = "Space Invaders"
 resizable = true
 script = ExtResource( 9 )
 
