@@ -22,3 +22,4 @@ func _process(delta):
 	
 	text = str(hour) + ":%02d"% [time.minute]+ " " + twelve_hour_clock
 
+# var time = Time.get_time_dict_from_system() (for later, I have ideas for virus effects)
