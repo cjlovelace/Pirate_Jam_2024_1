@@ -1,29 +1,46 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://DesktopIcon.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://addons/github-integration/fonts/W95FA.otf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 3 )
 
 [node name="Node2D" type="Node2D"]
 
-[node name="TextureRect" type="TextureRect" parent="."]
-margin_left = 16.0
-margin_top = 18.0
-margin_right = 80.0
-margin_bottom = 82.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 141.0
+margin_top = 149.0
+margin_right = 205.0
+margin_bottom = 234.0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+margin_right = 64.0
+margin_bottom = 64.0
 texture = ExtResource( 2 )
 script = ExtResource( 1 )
 idle_texture = ExtResource( 2 )
 click_texture = ExtResource( 2 )
 
-[node name="Window1" type="WindowDialog" parent="TextureRect"]
+[node name="Window1" type="WindowDialog" parent="VBoxContainer/TextureRect"]
 visible = true
-margin_left = 462.0
-margin_top = 215.0
-margin_right = 962.0
-margin_bottom = 550.0
+margin_left = 280.0
+margin_top = 37.0
+margin_right = 780.0
+margin_bottom = 372.0
 popup_exclusive = true
 window_title = "Pop Up"
 resizable = true
 
-[connection signal="mouse_entered" from="TextureRect" to="TextureRect" method="_on_TextureRect_mouse_entered"]
-[connection signal="mouse_exited" from="TextureRect" to="TextureRect" method="_on_TextureRect_mouse_exited"]
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_top = 68.0
+margin_right = 64.0
+margin_bottom = 84.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+text = "Snake?"
+align = 1
+
+[connection signal="mouse_entered" from="VBoxContainer/TextureRect" to="VBoxContainer/TextureRect" method="_on_TextureRect_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/TextureRect" to="VBoxContainer/TextureRect" method="_on_TextureRect_mouse_exited"]
