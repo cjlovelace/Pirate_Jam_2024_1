@@ -1,13 +1,15 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0, 0.215686, 0.0352941, 1 )
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0.994413, 1 )
+colors = PoolColorArray( 0, 0.145098, 0.0980392, 1, 1, 1, 1, 1 )
 
-[node name="SnakeSegment" type="Panel"]
-margin_right = 50.0
-margin_bottom = 50.0
-custom_styles/panel = SubResource( 1 )
+[sub_resource type="GradientTexture2D" id=2]
+gradient = SubResource( 1 )
+width = 50
+height = 50
+fill_from = Vector2( 0.145833, 0.191667 )
+
+[node name="SnakeSegment" type="Sprite"]
+position = Vector2( 54, 42 )
+texture = SubResource( 2 )
