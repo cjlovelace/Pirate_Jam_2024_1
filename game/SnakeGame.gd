@@ -6,8 +6,8 @@ var score : int
 var game_started : bool = false
 
 #grid
-var cells : int = 20
-var cell_size : int = 50
+var cells : int = 40
+var cell_size : int = 25
 
 #food
 var food_pos: Vector2
@@ -19,7 +19,7 @@ var snake_data : Array
 var snake : Array
 
 #movement
-var start_pos = Vector2(8, 8)
+var start_pos = Vector2(10, 10)
 var up = Vector2(0, -1)
 var down = Vector2(0, 1)
 var left = Vector2(-1, 0)
@@ -33,6 +33,7 @@ func _ready():
 
 func new_game():
 	score = 0
+	randomize()
 	$Hud.get_node("ScoreLabel").text = "Score: " + str(score)
 	move_direction = up
 	can_move = true
@@ -59,6 +60,7 @@ func _process(delta):
 	move_snake()
 
 func move_snake():
+	print(snake_data[0].x, " ", snake_data[0].y)
 	if can_move:
 		if Input.is_action_just_pressed("move_down") and move_direction != up:
 			move_direction = down
@@ -81,6 +83,7 @@ func move_snake():
 			if not game_started:
 				start_game()
 				
+	
 func start_game():
 	game_started = true
 	$MoveTimer.start()
