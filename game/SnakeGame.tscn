@@ -11,7 +11,8 @@ script = ExtResource( 1 )
 snake_scene = ExtResource( 4 )
 
 [node name="Background" type="Sprite" parent="."]
-position = Vector2( 528, 355 )
+position = Vector2( 516, 301 )
+scale = Vector2( 0.536458, 0.564815 )
 texture = ExtResource( 2 )
 
 [node name="Hud" parent="." instance=ExtResource( 3 )]
