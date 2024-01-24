@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://SnakeGame.gd" type="Script" id=1]
+[ext_resource path="res://snakebackground.png" type="Texture" id=2]
+[ext_resource path="res://Hud.tscn" type="PackedScene" id=3]
+[ext_resource path="res://SnakeSegment.tscn" type="PackedScene" id=4]
+
+[node name="Main" type="Node"]
+script = ExtResource( 1 )
+snake_scene = ExtResource( 4 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 528, 355 )
+texture = ExtResource( 2 )
+
+[node name="Hud" parent="." instance=ExtResource( 3 )]
