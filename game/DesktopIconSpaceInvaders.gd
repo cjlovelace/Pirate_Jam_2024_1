@@ -27,8 +27,11 @@ func _input(event):
 			print("Icon Clicked")
 			popup.popup_centered()
 			global.set_number_aliens(24)
-			
+			global.set_space_invaders_lost(false)
+			global.set_space_invaders_won(false)
 
 
 func _on_SpaceInvaders_popup_hide():
+	global.set_space_invaders_lost(false)
+	global.set_space_invaders_won(false)
 	get_tree().reload_current_scene()

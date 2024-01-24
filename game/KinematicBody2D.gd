@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+#this is the script for the aliens, I just dont know how to rename files in Godot
 var move_speed = 10
 
 
@@ -17,7 +18,14 @@ func _physics_process(delta):
 		
 		shootingcount = rand_range(0,50)
 		
+	if collision and collision.collider.has_method("wall_identifier"):
+		hit_wall()
+		
 func kill():
 	var previous = global.get_number_aliens()
 	global.set_number_aliens(previous - 1)
+	queue_free()
+
+func hit_wall():
+	global.set_space_invaders_lost(true)
 	queue_free()

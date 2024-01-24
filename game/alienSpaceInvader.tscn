@@ -8,11 +8,11 @@ extents = Vector2( 32, 32 )
 
 [node name="Alien" type="Node2D"]
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+[node name="Alien" type="KinematicBody2D" parent="."]
 script = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="KinematicBody2D"]
+[node name="Sprite" type="Sprite" parent="Alien"]
 texture = ExtResource( 1 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Alien"]
 shape = SubResource( 1 )
