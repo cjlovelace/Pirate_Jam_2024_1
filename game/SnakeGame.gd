@@ -3,7 +3,9 @@ extends Node
 export var snake_scene : PackedScene
 
 var score : int
+var winning_score : int = 3
 var game_started : bool = false
+var already_won : bool = false
 
 #grid
 var cells : int = 40
@@ -64,7 +66,7 @@ func _process(_delta):
 
 func move_snake():
 	print(snake_data[0])
-	if can_move:
+	if can_move and score < winning_score:
 		if Input.is_action_just_pressed("move_down") and move_direction != up:
 			move_direction = down
 			can_move = false
@@ -119,7 +121,11 @@ func check_food_eaten():
 		score += 1
 		$Hud.get_node("ScoreLabel").text = "SCORE: " + str(score)
 		add_segment(old_data[-1])
-		move_food()
+		if score < winning_score:
+			move_food()
+		else:
+			already_won = true
+			end_game()
 		
 func move_food():
 	while regen_food:
