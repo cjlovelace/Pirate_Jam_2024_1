@@ -10,6 +10,6 @@ width = 25
 height = 25
 fill_from = Vector2( 0.145833, 0.191667 )
 
-[node name="SnakeSegment" type="Sprite"]
+[node name="SnakeSegment" type="Sprite" groups=["segments"]]
 position = Vector2( 233, 179 )
 texture = SubResource( 2 )
