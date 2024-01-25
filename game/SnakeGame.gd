@@ -141,8 +141,16 @@ func move_food():
 
 func end_game():
 	$MoveTimer.stop()
+	
+	if score == winning_score:
+		$SnakeGameOverMenu/SnakeResultLabel.set_text("You Win!")
+		$SnakeGameOverMenu/SnakeResultLabel.ALIGN_CENTER
+	else:
+		$SnakeGameOverMenu/SnakeResultLabel.set_text("Game Over")
 	$SnakeGameOverMenu.show()
 	game_started = false
+	
+	
 
 func _on_SnakeGameOverMenu_restart():
 	new_game()
