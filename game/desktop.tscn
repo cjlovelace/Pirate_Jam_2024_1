@@ -182,43 +182,24 @@ margin_top = 272.0
 margin_right = 224.0
 margin_bottom = 600.0
 
-[node name="SnakeContainer" type="VBoxContainer" parent="."]
-margin_left = 36.0
-margin_top = 118.0
-margin_right = 85.0
-margin_bottom = 176.0
-alignment = 1
+[node name="ProgressBar" type="ProgressBar" parent="."]
+margin_left = 288.0
+margin_top = 8.0
+margin_right = 736.0
+margin_bottom = 22.0
+script = ExtResource( 10 )
 
-[node name="Snake" type="TextureRect" parent="SnakeContainer"]
-margin_right = 49.0
-margin_bottom = 40.0
-texture = ExtResource( 13 )
-script = ExtResource( 14 )
-idle_texture = ExtResource( 13 )
+[node name="Icons" type="VBoxContainer" parent="."]
+margin_right = 149.0
+margin_bottom = 179.0
+custom_constants/separation = 28
 
-[node name="SnakeDialog" type="WindowDialog" parent="SnakeContainer/Snake"]
-visible = true
-margin_left = 363.0
-margin_top = 48.0
-margin_right = 863.0
-margin_bottom = 403.0
-popup_exclusive = true
-window_title = "Serpent"
-resizable = true
+[node name="SpaceInvadersContainer" type="VBoxContainer" parent="Icons"]
+margin_right = 149.0
+margin_bottom = 82.0
 
-[node name="Label" type="Label" parent="SnakeContainer"]
-margin_top = 44.0
-margin_right = 49.0
-margin_bottom = 58.0
-text = "Serpent"
-align = 1
-
-[node name="SpaceInvadersContainer" type="VBoxContainer" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-
-[node name="TextureRect" type="TextureRect" parent="SpaceInvadersContainer"]
-margin_right = 96.0
+[node name="TextureRect" type="TextureRect" parent="Icons/SpaceInvadersContainer"]
+margin_right = 149.0
 margin_bottom = 64.0
 texture = ExtResource( 3 )
 stretch_mode = 6
@@ -226,7 +207,7 @@ script = ExtResource( 8 )
 idle_texture = ExtResource( 3 )
 hover_texture = ExtResource( 3 )
 
-[node name="SpaceInvaders" type="WindowDialog" parent="SpaceInvadersContainer/TextureRect"]
+[node name="SpaceInvaders" type="WindowDialog" parent="Icons/SpaceInvadersContainer/TextureRect"]
 visible = true
 margin_left = 462.0
 margin_top = 215.0
@@ -237,136 +218,136 @@ window_title = "Space Invaders"
 resizable = true
 script = ExtResource( 9 )
 
-[node name="ColorRect" type="ColorRect" parent="SpaceInvadersContainer/TextureRect/SpaceInvaders"]
+[node name="ColorRect" type="ColorRect" parent="Icons/SpaceInvadersContainer/TextureRect/SpaceInvaders"]
 margin_right = 500.0
 margin_bottom = 335.0
 color = Color( 0, 0, 0, 1 )
 
-[node name="Wall" parent="SpaceInvadersContainer/TextureRect/SpaceInvaders" instance=ExtResource( 4 )]
+[node name="Wall" parent="Icons/SpaceInvadersContainer/TextureRect/SpaceInvaders" instance=ExtResource( 4 )]
 position = Vector2( 506, 329 )
 
-[node name="Wall2" parent="SpaceInvadersContainer/TextureRect/SpaceInvaders" instance=ExtResource( 4 )]
+[node name="Wall2" parent="Icons/SpaceInvadersContainer/TextureRect/SpaceInvaders" instance=ExtResource( 4 )]
 position = Vector2( -6, 329 )
 
-[node name="Player" parent="SpaceInvadersContainer/TextureRect/SpaceInvaders" instance=ExtResource( 6 )]
+[node name="Player" parent="Icons/SpaceInvadersContainer/TextureRect/SpaceInvaders" instance=ExtResource( 6 )]
 position = Vector2( 242, 313 )
 
-[node name="Wall3" parent="SpaceInvadersContainer/TextureRect/SpaceInvaders" instance=ExtResource( 4 )]
+[node name="Wall3" parent="Icons/SpaceInvadersContainer/TextureRect/SpaceInvaders" instance=ExtResource( 4 )]
 position = Vector2( 250, -7 )
 scale = Vector2( 25, 1 )
 
-[node name="Wall4" parent="SpaceInvadersContainer/TextureRect/SpaceInvaders" instance=ExtResource( 4 )]
+[node name="Wall4" parent="Icons/SpaceInvadersContainer/TextureRect/SpaceInvaders" instance=ExtResource( 4 )]
 position = Vector2( 250, 345 )
 scale = Vector2( 25, 1 )
 
-[node name="Alien" parent="SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
+[node name="Alien" parent="Icons/SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
 position = Vector2( 26, 25 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Alien2" parent="SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
+[node name="Alien2" parent="Icons/SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
 position = Vector2( 66, 25 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Alien3" parent="SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
+[node name="Alien3" parent="Icons/SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
 position = Vector2( 106, 25 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Alien4" parent="SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
+[node name="Alien4" parent="Icons/SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
 position = Vector2( 146, 25 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Alien5" parent="SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
+[node name="Alien5" parent="Icons/SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
 position = Vector2( 186, 25 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Alien6" parent="SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
+[node name="Alien6" parent="Icons/SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
 position = Vector2( 226, 25 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Alien7" parent="SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
+[node name="Alien7" parent="Icons/SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
 position = Vector2( 266, 25 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Alien8" parent="SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
+[node name="Alien8" parent="Icons/SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
 position = Vector2( 306, 25 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Alien9" parent="SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
+[node name="Alien9" parent="Icons/SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
 position = Vector2( 346, 25 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Alien10" parent="SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
+[node name="Alien10" parent="Icons/SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
 position = Vector2( 386, 25 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Alien11" parent="SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
+[node name="Alien11" parent="Icons/SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
 position = Vector2( 426, 25 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Alien12" parent="SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
+[node name="Alien12" parent="Icons/SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
 position = Vector2( 466, 25 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Alien13" parent="SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
+[node name="Alien13" parent="Icons/SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
 position = Vector2( 26, 65 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Alien14" parent="SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
+[node name="Alien14" parent="Icons/SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
 position = Vector2( 66, 65 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Alien15" parent="SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
+[node name="Alien15" parent="Icons/SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
 position = Vector2( 106, 65 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Alien16" parent="SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
+[node name="Alien16" parent="Icons/SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
 position = Vector2( 146, 65 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Alien17" parent="SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
+[node name="Alien17" parent="Icons/SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
 position = Vector2( 186, 65 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Alien18" parent="SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
+[node name="Alien18" parent="Icons/SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
 position = Vector2( 226, 65 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Alien19" parent="SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
+[node name="Alien19" parent="Icons/SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
 position = Vector2( 266, 65 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Alien20" parent="SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
+[node name="Alien20" parent="Icons/SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
 position = Vector2( 306, 65 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Alien21" parent="SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
+[node name="Alien21" parent="Icons/SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
 position = Vector2( 346, 65 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Alien22" parent="SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
+[node name="Alien22" parent="Icons/SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
 position = Vector2( 386, 65 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Alien23" parent="SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
+[node name="Alien23" parent="Icons/SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
 position = Vector2( 426, 65 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Alien24" parent="SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
+[node name="Alien24" parent="Icons/SpaceInvadersContainer/TextureRect/SpaceInvaders" groups=["Aliens"] instance=ExtResource( 7 )]
 position = Vector2( 466, 65 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="GameOverScreen" type="MarginContainer" parent="SpaceInvadersContainer/TextureRect/SpaceInvaders"]
+[node name="GameOverScreen" type="MarginContainer" parent="Icons/SpaceInvadersContainer/TextureRect/SpaceInvaders"]
 margin_right = 500.0
 margin_bottom = 337.0
 
-[node name="ColorRect" type="ColorRect" parent="SpaceInvadersContainer/TextureRect/SpaceInvaders/GameOverScreen"]
+[node name="ColorRect" type="ColorRect" parent="Icons/SpaceInvadersContainer/TextureRect/SpaceInvaders/GameOverScreen"]
 margin_right = 500.0
 margin_bottom = 337.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0, 0, 0, 1 )
 
-[node name="Label" type="Label" parent="SpaceInvadersContainer/TextureRect/SpaceInvaders/GameOverScreen"]
+[node name="Label" type="Label" parent="Icons/SpaceInvadersContainer/TextureRect/SpaceInvaders/GameOverScreen"]
 margin_right = 500.0
 margin_bottom = 337.0
 size_flags_horizontal = 3
@@ -377,18 +358,18 @@ text = "GAME OVER"
 align = 1
 valign = 1
 
-[node name="WinScreen" type="MarginContainer" parent="SpaceInvadersContainer/TextureRect/SpaceInvaders"]
+[node name="WinScreen" type="MarginContainer" parent="Icons/SpaceInvadersContainer/TextureRect/SpaceInvaders"]
 margin_right = 500.0
 margin_bottom = 337.0
 
-[node name="ColorRect" type="ColorRect" parent="SpaceInvadersContainer/TextureRect/SpaceInvaders/WinScreen"]
+[node name="ColorRect" type="ColorRect" parent="Icons/SpaceInvadersContainer/TextureRect/SpaceInvaders/WinScreen"]
 margin_right = 500.0
 margin_bottom = 337.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0, 0, 0, 1 )
 
-[node name="Label" type="Label" parent="SpaceInvadersContainer/TextureRect/SpaceInvaders/WinScreen"]
+[node name="Label" type="Label" parent="Icons/SpaceInvadersContainer/TextureRect/SpaceInvaders/WinScreen"]
 margin_right = 500.0
 margin_bottom = 337.0
 size_flags_horizontal = 3
@@ -399,28 +380,52 @@ text = "YOU WIN"
 align = 1
 valign = 1
 
-[node name="Label" type="Label" parent="SpaceInvadersContainer"]
+[node name="Label" type="Label" parent="Icons/SpaceInvadersContainer"]
 margin_top = 68.0
-margin_right = 96.0
+margin_right = 149.0
 margin_bottom = 82.0
 text = "Space Invaders"
 align = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
-margin_left = 288.0
-margin_top = 8.0
-margin_right = 736.0
-margin_bottom = 22.0
-script = ExtResource( 10 )
+[node name="SnakeContainer" type="VBoxContainer" parent="Icons"]
+margin_top = 110.0
+margin_right = 149.0
+margin_bottom = 168.0
+alignment = 1
 
-[connection signal="focus_entered" from="SnakeContainer/Snake" to="." method="_on_Snake_focus_entered"]
-[connection signal="focus_entered" from="SnakeContainer/Snake" to="SnakeContainer/Snake" method="_on_Snake_focus_entered"]
-[connection signal="focus_exited" from="SnakeContainer/Snake" to="SpaceInvadersContainer/TextureRect" method="_on_Snake_focus_exited"]
-[connection signal="focus_exited" from="SnakeContainer/Snake" to="SnakeContainer/Snake" method="_on_Snake_focus_exited"]
-[connection signal="mouse_entered" from="SnakeContainer/Snake" to="SnakeContainer/Snake" method="_on_Snake_mouse_entered"]
-[connection signal="mouse_exited" from="SnakeContainer/Snake" to="SnakeContainer/Snake" method="_on_Snake_mouse_exited"]
-[connection signal="focus_entered" from="SnakeContainer/Snake/SnakeDialog" to="SnakeContainer/Snake" method="_on_SnakeDialog_focus_entered"]
-[connection signal="mouse_entered" from="SnakeContainer/Snake/SnakeDialog" to="SnakeContainer/Snake" method="_on_SnakeDialog_mouse_entered"]
-[connection signal="mouse_entered" from="SpaceInvadersContainer/TextureRect" to="SpaceInvadersContainer/TextureRect" method="_on_TextureRect_mouse_entered"]
-[connection signal="mouse_exited" from="SpaceInvadersContainer/TextureRect" to="SpaceInvadersContainer/TextureRect" method="_on_TextureRect_mouse_exited"]
-[connection signal="popup_hide" from="SpaceInvadersContainer/TextureRect/SpaceInvaders" to="SpaceInvadersContainer/TextureRect" method="_on_SpaceInvaders_popup_hide"]
+[node name="Snake" type="TextureRect" parent="Icons/SnakeContainer"]
+margin_right = 149.0
+margin_bottom = 40.0
+texture = ExtResource( 13 )
+stretch_mode = 6
+script = ExtResource( 14 )
+idle_texture = ExtResource( 13 )
+
+[node name="SnakeDialog" type="WindowDialog" parent="Icons/SnakeContainer/Snake"]
+visible = true
+margin_left = 363.0
+margin_top = 48.0
+margin_right = 863.0
+margin_bottom = 403.0
+popup_exclusive = true
+window_title = "Serpent"
+resizable = true
+
+[node name="Label" type="Label" parent="Icons/SnakeContainer"]
+margin_top = 44.0
+margin_right = 149.0
+margin_bottom = 58.0
+text = "Serpent"
+align = 1
+
+[connection signal="mouse_entered" from="Icons/SpaceInvadersContainer/TextureRect" to="Icons/SpaceInvadersContainer/TextureRect" method="_on_TextureRect_mouse_entered"]
+[connection signal="mouse_exited" from="Icons/SpaceInvadersContainer/TextureRect" to="Icons/SpaceInvadersContainer/TextureRect" method="_on_TextureRect_mouse_exited"]
+[connection signal="popup_hide" from="Icons/SpaceInvadersContainer/TextureRect/SpaceInvaders" to="Icons/SpaceInvadersContainer/TextureRect" method="_on_SpaceInvaders_popup_hide"]
+[connection signal="focus_entered" from="Icons/SnakeContainer/Snake" to="." method="_on_Snake_focus_entered"]
+[connection signal="focus_entered" from="Icons/SnakeContainer/Snake" to="Icons/SnakeContainer/Snake" method="_on_Snake_focus_entered"]
+[connection signal="focus_exited" from="Icons/SnakeContainer/Snake" to="Icons/SnakeContainer/Snake" method="_on_Snake_focus_exited"]
+[connection signal="focus_exited" from="Icons/SnakeContainer/Snake" to="Icons/SpaceInvadersContainer/TextureRect" method="_on_Snake_focus_exited"]
+[connection signal="mouse_entered" from="Icons/SnakeContainer/Snake" to="Icons/SnakeContainer/Snake" method="_on_Snake_mouse_entered"]
+[connection signal="mouse_exited" from="Icons/SnakeContainer/Snake" to="Icons/SnakeContainer/Snake" method="_on_Snake_mouse_exited"]
+[connection signal="focus_entered" from="Icons/SnakeContainer/Snake/SnakeDialog" to="Icons/SnakeContainer/Snake" method="_on_SnakeDialog_focus_entered"]
+[connection signal="mouse_entered" from="Icons/SnakeContainer/Snake/SnakeDialog" to="Icons/SnakeContainer/Snake" method="_on_SnakeDialog_mouse_entered"]
