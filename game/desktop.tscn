@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://addons/github-integration/fonts/W95FA.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Clock.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://desktop.gd" type="Script" id=11]
 [ext_resource path="res://WelcomeLabel.gd" type="Script" id=12]
 [ext_resource path="res://SnakeIcon.png" type="Texture" id=13]
+[ext_resource path="res://DesktopIconSnake.gd" type="Script" id=14]
 
 [sub_resource type="DynamicFont" id=1]
 outline_color = Color( 0, 0, 0, 1 )
@@ -180,6 +181,37 @@ visible = false
 margin_top = 272.0
 margin_right = 224.0
 margin_bottom = 600.0
+
+[node name="SnakeContainer" type="VBoxContainer" parent="."]
+margin_left = 36.0
+margin_top = 118.0
+margin_right = 85.0
+margin_bottom = 176.0
+alignment = 1
+
+[node name="Snake" type="TextureRect" parent="SnakeContainer"]
+margin_right = 49.0
+margin_bottom = 40.0
+texture = ExtResource( 13 )
+script = ExtResource( 14 )
+idle_texture = ExtResource( 13 )
+
+[node name="SnakeDialog" type="WindowDialog" parent="SnakeContainer/Snake"]
+visible = true
+margin_left = 363.0
+margin_top = 48.0
+margin_right = 863.0
+margin_bottom = 403.0
+popup_exclusive = true
+window_title = "Serpent"
+resizable = true
+
+[node name="Label" type="Label" parent="SnakeContainer"]
+margin_top = 44.0
+margin_right = 49.0
+margin_bottom = 58.0
+text = "Serpent"
+align = 1
 
 [node name="SpaceInvadersContainer" type="VBoxContainer" parent="."]
 margin_right = 40.0
@@ -368,8 +400,7 @@ align = 1
 valign = 1
 
 [node name="Label" type="Label" parent="SpaceInvadersContainer"]
-margin_left = 6.0
-margin_top = 62.0
+margin_top = 68.0
 margin_right = 96.0
 margin_bottom = 82.0
 text = "Space Invaders"
@@ -382,27 +413,14 @@ margin_right = 736.0
 margin_bottom = 22.0
 script = ExtResource( 10 )
 
-[node name="SnakeContainer" type="VBoxContainer" parent="."]
-margin_left = 36.0
-margin_top = 118.0
-margin_right = 76.0
-margin_bottom = 158.0
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="SnakeContainer"]
-margin_left = -5.0
-margin_right = 49.0
-margin_bottom = 40.0
-texture = ExtResource( 13 )
-
-[node name="Label" type="Label" parent="SnakeContainer"]
-margin_left = -22.0
-margin_top = 46.0
-margin_right = 49.0
-margin_bottom = 58.0
-text = "Serpent"
-align = 1
-
+[connection signal="focus_entered" from="SnakeContainer/Snake" to="." method="_on_Snake_focus_entered"]
+[connection signal="focus_entered" from="SnakeContainer/Snake" to="SnakeContainer/Snake" method="_on_Snake_focus_entered"]
+[connection signal="focus_exited" from="SnakeContainer/Snake" to="SpaceInvadersContainer/TextureRect" method="_on_Snake_focus_exited"]
+[connection signal="focus_exited" from="SnakeContainer/Snake" to="SnakeContainer/Snake" method="_on_Snake_focus_exited"]
+[connection signal="mouse_entered" from="SnakeContainer/Snake" to="SnakeContainer/Snake" method="_on_Snake_mouse_entered"]
+[connection signal="mouse_exited" from="SnakeContainer/Snake" to="SnakeContainer/Snake" method="_on_Snake_mouse_exited"]
+[connection signal="focus_entered" from="SnakeContainer/Snake/SnakeDialog" to="SnakeContainer/Snake" method="_on_SnakeDialog_focus_entered"]
+[connection signal="mouse_entered" from="SnakeContainer/Snake/SnakeDialog" to="SnakeContainer/Snake" method="_on_SnakeDialog_mouse_entered"]
 [connection signal="mouse_entered" from="SpaceInvadersContainer/TextureRect" to="SpaceInvadersContainer/TextureRect" method="_on_TextureRect_mouse_entered"]
 [connection signal="mouse_exited" from="SpaceInvadersContainer/TextureRect" to="SpaceInvadersContainer/TextureRect" method="_on_TextureRect_mouse_exited"]
 [connection signal="popup_hide" from="SpaceInvadersContainer/TextureRect/SpaceInvaders" to="SpaceInvadersContainer/TextureRect" method="_on_SpaceInvaders_popup_hide"]
