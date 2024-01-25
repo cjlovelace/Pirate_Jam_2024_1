@@ -11,5 +11,7 @@ func _ready():
 	pass # Replace with function body.
 
 func _process(delta):
-	if global.get_percent_corrupted() >= 20:
+	if global.get_percent_corrupted() >= 20 && global.get_percent_corrupted() < 60:
 		text = "Emoclew"
+	if global.get_percent_corrupted() >= 60:
+		text = "HeLp mE"
