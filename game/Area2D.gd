@@ -3,7 +3,8 @@ extends Area2D
 #this is the script for the aliens bullet I just dont know how to rename things
 
 func _physics_process(delta):
-	position.y += 2
+	if(!global.space_invaders_paused):
+		position.y += 2
 	
 
 

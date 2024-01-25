@@ -7,6 +7,7 @@ var percent_corrupted = 0
 
 var space_invaders_lost = false
 var space_invaders_won = false
+var space_invaders_paused = true
 
 
 # Called when the node enters the scene tree for the first time.

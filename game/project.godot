@@ -34,6 +34,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://DesktopIconSpaceInvaders.gd"
 }, {
+"base": "TextureRect",
+"class": "DesktopSnake",
+"language": "GDScript",
+"path": "res://DesktopIconSnake.gd"
+}, {
 "base": "PanelContainer",
 "class": "GistItem",
 "language": "GDScript",
@@ -65,6 +70,7 @@ _global_script_class_icons={
 "DeathZone": "",
 "DesktopIcon": "",
 "DesktopIconSpaceInvaders": "",
+"DesktopSnake": "",
 "GistItem": "",
 "Icon": "",
 "InvitationItem": "",

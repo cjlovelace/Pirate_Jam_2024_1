@@ -14,6 +14,7 @@ onready var popup = get_node("SpaceInvaders")
 func _ready():
 	texture = idle_texture
 	popup.popup_exclusive = true
+	global.space_invaders_paused = true
 
 func _on_TextureRect_mouse_entered():
 	MouseOver = true
@@ -29,9 +30,11 @@ func _input(event):
 			global.set_number_aliens(24)
 			global.set_space_invaders_lost(false)
 			global.set_space_invaders_won(false)
+			global.space_invaders_paused = false
 
 
 func _on_SpaceInvaders_popup_hide():
+	global.space_invaders_paused = true
 	global.set_space_invaders_lost(false)
 	global.set_space_invaders_won(false)
 	get_tree().reload_current_scene()
