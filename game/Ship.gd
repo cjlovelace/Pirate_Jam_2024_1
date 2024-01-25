@@ -7,18 +7,28 @@ var velocity = Vector2()
 
 func _physics_process(delta):
 	
-	if Input.is_action_just_pressed("ui_left"):
-		print("left")
-		velocity.x = -speed
-	if Input.is_action_just_pressed("ui_right"):
-		print("right")
-		velocity.x = speed
-	
+	if global.get_percent_corrupted() < 70:
+		if Input.is_action_just_pressed("ui_left"):
+			print("left")
+			velocity.x = -speed
+		if Input.is_action_just_pressed("ui_right"):
+			print("right")
+			velocity.x = speed
+	else: 
+		if Input.is_action_just_pressed("ui_left"):
+			print("left")
+			velocity.x = speed
+		if Input.is_action_just_pressed("ui_right"):
+			print("right")
+			velocity.x = -speed
+		
 	move_and_slide(velocity)
 	
 	if Input.is_action_just_pressed("ui_fire"):
 		print("shots fired")
 		fire()
+	
+	
 		
 
 

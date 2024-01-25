@@ -28,4 +28,6 @@ func kill():
 
 func hit_wall():
 	global.set_space_invaders_lost(true)
+	var current = global.get_percent_corrupted()
+	global.set_percent_corrupted(current + 10)
 	queue_free()
