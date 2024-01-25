@@ -19,13 +19,14 @@ var snake_data : Array
 var snake : Array
 
 #movement
-var start_pos = Vector2(10, 10)
+var start_pos = Vector2(20,20)
 var up = Vector2(0, -1)
 var down = Vector2(0, 1)
 var left = Vector2(-1, 0)
 var right = Vector2(1, 0)
 var move_direction: Vector2
 var can_move: bool
+var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,7 +34,6 @@ func _ready():
 
 func new_game():
 	score = 0
-	randomize()
 	$Hud.get_node("ScoreLabel").text = "Score: " + str(score)
 	move_direction = up
 	can_move = true
@@ -60,7 +60,7 @@ func _process(delta):
 	move_snake()
 
 func move_snake():
-	print(snake_data[0].x, " ", snake_data[0].y)
+	print(snake_data[0])
 	if can_move:
 		if Input.is_action_just_pressed("move_down") and move_direction != up:
 			move_direction = down
@@ -102,7 +102,7 @@ func _on_MoveTimer_timeout():
 	check_food_eaten()
 
 func check_out_of_bounds():
-	if snake_data[0].x < 0 or snake_data[0].x > cells - 1 or snake_data[0].y < 0 or snake_data[0].y > cells - 1:
+	if snake_data[0].x < 1 or snake_data[0].x > cells - 1 or snake_data[0].y < 1 or snake_data[0].y > cells - 1:
 		end_game()
 		
 func check_self_eaten():
@@ -112,7 +112,7 @@ func check_self_eaten():
 			
 func check_food_eaten():
 	#if snake eats the food, add a segment and move the food
-	if snake_data[0] == food_pos:
+	if snake_data[0].x - 6 == food_pos.x and snake_data[0].y - 6 == food_pos.y:
 		score += 1
 		$Hud.get_node("ScoreLabel").text = "SCORE: " + str(score)
 		add_segment(old_data[-1])
@@ -121,7 +121,9 @@ func check_food_eaten():
 func move_food():
 	while regen_food:
 		regen_food = false
-		food_pos = Vector2(rand_range(0, cells - 1), rand_range(0, cells - 1))
+		rng.randomize()
+		food_pos = Vector2(rng.randi_range(1, 30), rng.randi_range(1, 20))
+		print(food_pos)
 		for i in snake_data:
 			if food_pos == i:
 				regen_food = true

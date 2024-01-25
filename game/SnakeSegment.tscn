@@ -11,5 +11,5 @@ height = 25
 fill_from = Vector2( 0.145833, 0.191667 )
 
 [node name="SnakeSegment" type="Sprite"]
-position = Vector2( 54, 42 )
+position = Vector2( 233, 179 )
 texture = SubResource( 2 )
