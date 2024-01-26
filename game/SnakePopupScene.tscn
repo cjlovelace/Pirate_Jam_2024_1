@@ -58,3 +58,6 @@ align = 1
 valign = 1
 
 [node name="MoveTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[connection signal="timeout" from="MoveTimer" to="." method="_on_MoveTimer_timeout"]

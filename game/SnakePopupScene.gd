@@ -47,18 +47,18 @@ func generate_snake():
 	
 	for i in range(3):
 		var new_sprite = Sprite.new()
-		$SnakePopupTest/Sprite/SnakeBox.add_child(new_sprite)
 		new_sprite.texture = load("res://SnakeSeg.png")
-		new_sprite.position = Vector2(250, 150 + (i * cell_size))
+		new_sprite.position = Vector2(250, 150) + Vector2(0, i * cell_size)
 		snake_data.append(new_sprite.position)
 		snake.append(new_sprite)
+		$SnakePopupTest.add_child(new_sprite)
+
 		
 func move_food():
 	while regen_food:
 		regen_food = false
 		rng.randomize()
-		food_pos = Vector2(rng.randi_range(20, 480), rng.randi_range(50, 295))
-		print(food_pos)
+		food_pos = Vector2(rng.randi_range(20, 300), rng.randi_range(50, 295))
 		for i in snake_data:
 			if food_pos == i:
 				regen_food = true
@@ -69,7 +69,6 @@ func _process(_delta):
 	move_snake()
 
 func move_snake():
-	print(snake_data[0])
 	if can_move and score < winning_score:
 		if Input.is_action_just_pressed("move_down") and move_direction != up:
 			move_direction = down
@@ -101,8 +100,12 @@ func _on_MoveTimer_timeout():
 	old_data = [] + snake_data
 	snake_data[0] += move_direction
 	for i in range(len(snake_data)):
+		snake_data[i] += move_direction
+		snake[i].position = snake_data[i]
 		if i > 0:
 			snake_data[i] = old_data[i - 1]
-		snake[i].position = (snake_data[i] * cell_size) + Vector2(0, cell_size)
+			print(old_data[i-1])
+		#snake[i].position = (snake_data[i] * cell_size)
+
 	
 	
