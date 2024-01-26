@@ -7,11 +7,12 @@ var already_won : bool = false
 
 #grid
 var cells : int = 40
-var cell_size : int = 25
+var cell_size : int = 20
 
 #food
 var food_pos: Vector2
 var regen_food : bool = true
+var ate_counter : int = 0
 
 #snake
 var old_data : Array
@@ -20,10 +21,10 @@ var snake : Array
 
 #movement
 var start_pos = Vector2(250, 150)
-var up = Vector2(0, -1)
-var down = Vector2(0, 1)
-var left = Vector2(-1, 0)
-var right = Vector2(1, 0)
+var up = Vector2(0, -10)
+var down = Vector2(0, 10)
+var left = Vector2(-10, 0)
+var right = Vector2(10, 0)
 var move_direction: Vector2
 var can_move: bool
 var rng = RandomNumberGenerator.new()
@@ -39,7 +40,6 @@ func new_game():
 	move_direction = up
 	can_move = true
 
-
 func generate_snake():
 	old_data.clear()
 	snake_data.clear()
@@ -48,7 +48,7 @@ func generate_snake():
 	for i in range(3):
 		var new_sprite = Sprite.new()
 		new_sprite.texture = load("res://SnakeSeg.png")
-		new_sprite.position = Vector2(250, 150) + Vector2(0, i * cell_size)
+		new_sprite.position = Vector2(250, 150) + Vector2(0, i * 20)
 		snake_data.append(new_sprite.position)
 		snake.append(new_sprite)
 		$SnakePopupTest.add_child(new_sprite)
@@ -64,6 +64,8 @@ func move_food():
 				regen_food = true
 	$SnakePopupTest/Sprite/SnakeBox/Food.position = food_pos
 	regen_food = true
+	print("Food: " + str(food_pos) + " Snake: " + str(snake[0].position))
+	
 	
 func _process(_delta):
 	move_snake()
@@ -104,8 +106,9 @@ func _on_MoveTimer_timeout():
 		snake[i].position = snake_data[i]
 		if i > 0:
 			snake_data[i] = old_data[i - 1]
-			print(old_data[i-1])
-		#snake[i].position = (snake_data[i] * cell_size)
-
-	
-	
+		snake[i].position = snake_data[i]
+	if ((snake[0].position.x >= food_pos.x - 5) and (snake[0].position.x <= food_pos.x + 25) and
+		(snake[0].position.y >= food_pos.y - 5) and (snake[0].position.y <= food_pos.y + 25)):
+			ate_counter+= 1
+			#print("She ate " + str(ate_counter))
+	#print("Snake: " + str(snake[0].position))
