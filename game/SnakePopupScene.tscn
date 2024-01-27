@@ -1,15 +1,27 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://snakebackground.png" type="Texture" id=1]
 [ext_resource path="res://SnakePopupScene.gd" type="Script" id=2]
 [ext_resource path="res://addons/github-integration/fonts/W95FA.otf" type="DynamicFontData" id=3]
 [ext_resource path="res://apple.png" type="Texture" id=4]
+[ext_resource path="res://SnakeIcon.png" type="Texture" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 1 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 28
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.294118, 0.0392157, 0.309804, 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 34
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 19
 font_data = ExtResource( 3 )
 
 [node name="Node2D" type="Node2D"]
@@ -35,7 +47,7 @@ margin_right = 251.0
 margin_bottom = 177.0
 
 [node name="Food" type="Sprite" parent="SnakePopupTest/Sprite/SnakeBox"]
-position = Vector2( -1.00002, -37 )
+position = Vector2( 113, 83 )
 texture = ExtResource( 4 )
 
 [node name="ScorePanel" type="Panel" parent="SnakePopupTest"]
@@ -57,7 +69,37 @@ text = "Score: 0"
 align = 1
 valign = 1
 
+[node name="Menu" type="Panel" parent="SnakePopupTest"]
+margin_left = 82.0
+margin_top = 57.0
+margin_right = 419.0
+margin_bottom = 308.0
+custom_styles/panel = SubResource( 5 )
+
+[node name="WinStatus" type="Label" parent="SnakePopupTest/Menu"]
+margin_left = 67.0
+margin_top = 32.0
+margin_right = 268.0
+margin_bottom = 83.0
+custom_fonts/font = SubResource( 3 )
+text = "Game Over"
+align = 1
+uppercase = true
+
+[node name="PlayBtn" type="Button" parent="SnakePopupTest/Menu"]
+margin_left = 106.0
+margin_top = 142.0
+margin_right = 226.0
+margin_bottom = 182.0
+custom_fonts/font = SubResource( 4 )
+text = "Play Again"
+
+[node name="SnakeIcon" type="Sprite" parent="SnakePopupTest/Menu"]
+position = Vector2( 168, 103 )
+texture = ExtResource( 5 )
+
 [node name="MoveTimer" type="Timer" parent="."]
 wait_time = 0.1
 
+[connection signal="button_up" from="SnakePopupTest/Menu/PlayBtn" to="." method="_on_PlayBtn_button_up"]
 [connection signal="timeout" from="MoveTimer" to="." method="_on_MoveTimer_timeout"]
