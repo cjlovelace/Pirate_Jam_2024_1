@@ -21,6 +21,9 @@ func _process(delta):
 
 	if global.get_number_aliens() == 0:
 		global.set_space_invaders_won(true)
+		if(!global.space_invaders_has_triggered):
+			global.increment_key()
+			global.space_invaders_has_triggered = true
 		global.set_number_aliens(24)
 		var current = global.get_percent_corrupted()
 		if current < 10:

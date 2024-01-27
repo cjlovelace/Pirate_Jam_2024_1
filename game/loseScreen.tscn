@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://addons/github-integration/fonts/W95FA.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://loseScreen.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 28
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.392157, 0.392157, 0.392157, 1 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_top = 276.0
+margin_right = 1024.0
+margin_bottom = 324.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "SYSTEM CRASHED"
+align = 1
+valign = 1
+
+[node name="MenuButton" type="Button" parent="."]
+margin_left = 256.0
+margin_top = 384.0
+margin_right = 768.0
+margin_bottom = 496.0
+custom_fonts/font = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+text = "Factory Reset"
+
+[connection signal="button_up" from="MenuButton" to="." method="_on_MenuButton_button_up"]

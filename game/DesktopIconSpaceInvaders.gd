@@ -9,18 +9,20 @@ export (Texture) var click_texture
 var MouseOver = false
 onready var popup = get_node("SpaceInvaders")
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	texture = idle_texture
 	popup.popup_exclusive = true
 	global.space_invaders_paused = true
+	global.space_invaders_has_triggered = false
 
 func _on_TextureRect_mouse_entered():
 	MouseOver = true
+	global.move_icons = true
 
 func _on_TextureRect_mouse_exited():
 	MouseOver = false
+	global.move_icons = false
 	
 func _input(event):
 	if event is InputEventMouseButton and event.doubleclick and event.button_index == BUTTON_LEFT:
