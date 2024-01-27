@@ -99,9 +99,7 @@ func move_food():
 	$SnakePopupTest/Sprite/SnakeBox/Food.texture = load("res://apple.png")
 	$SnakePopupTest/Sprite/SnakeBox/Food.position = food_pos
 	regen_food = true
-	print("Food: " + str(food_pos) + " Snake: " + str(snake[0].position))
-	
-	
+
 func _process(_delta):
 	move_snake()
 
