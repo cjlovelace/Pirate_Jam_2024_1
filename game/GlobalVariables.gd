@@ -10,6 +10,7 @@ var space_invaders_won = false
 var space_invaders_paused = true
 
 var space_invaders_has_triggered = false
+var snake_has_triggered = false
 
 var move_icons = false
 

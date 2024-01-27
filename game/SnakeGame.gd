@@ -141,12 +141,21 @@ func move_food():
 
 func end_game():
 	$MoveTimer.stop()
-	
+	var current = global.get_percent_corrupted()
 	if score == winning_score:
 		$SnakeGameOverMenu/SnakeResultLabel.set_text("You Win!")
 		$SnakeGameOverMenu/SnakeResultLabel.ALIGN_CENTER
+		if already_won != true:
+			if current < 10:
+				global.set_percent_corrupted(0)
+			else:
+				global.set_percent_corrupted(current - 10)
+		if(!global.snake_has_triggered):
+			global.increment_key()
+			global.snake_has_triggered = true
 	else:
 		$SnakeGameOverMenu/SnakeResultLabel.set_text("Game Over")
+		global.set_percent_corrupted(current+10)
 	$SnakeGameOverMenu.show()
 	game_started = false
 	

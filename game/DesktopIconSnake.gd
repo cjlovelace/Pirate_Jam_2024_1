@@ -12,6 +12,7 @@ onready var popup = get_node("SnakePopupTest")
 func _ready():
 	texture = idle_texture
 	popup.popup_exclusive = true
+	global.snake_has_triggered = false
 	popup.hide()
 
 func _on_Snake_mouse_entered():

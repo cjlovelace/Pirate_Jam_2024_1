@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://addons/github-integration/fonts/W95FA.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Clock.gd" type="Script" id=2]
@@ -19,6 +19,8 @@
 [ext_resource path="res://Key_text.gd" type="Script" id=17]
 [ext_resource path="res://snakebackground.png" type="Texture" id=18]
 [ext_resource path="res://apple.png" type="Texture" id=19]
+[ext_resource path="res://cute_computer_32x32.png" type="Texture" id=20]
+[ext_resource path="res://DesktopIconComputer.gd" type="Script" id=21]
 
 [sub_resource type="DynamicFont" id=1]
 outline_color = Color( 0, 0, 0, 1 )
@@ -65,15 +67,14 @@ bg_color = Color( 0, 0, 0, 1 )
 size = 28
 font_data = ExtResource( 1 )
 
-[sub_resource type="StyleBoxFlat" id=12]
-bg_color = Color( 0.294118, 0.0392157, 0.309804, 1 )
-
 [sub_resource type="DynamicFont" id=13]
-size = 34
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=14]
 size = 19
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=12]
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=9]
@@ -479,7 +480,6 @@ margin_left = 82.0
 margin_top = 57.0
 margin_right = 419.0
 margin_bottom = 308.0
-custom_styles/panel = SubResource( 12 )
 
 [node name="WinStatus" type="Label" parent="Icons/SnakeContainer/Snake/SnakePopupTest/Menu"]
 margin_left = 67.0
@@ -516,6 +516,62 @@ align = 1
 [node name="MoveTimer" type="Timer" parent="Icons/SnakeContainer"]
 wait_time = 0.1
 
+[node name="ReadmeContainer2" type="VBoxContainer" parent="Icons"]
+margin_top = 196.0
+margin_right = 149.0
+margin_bottom = 248.0
+
+[node name="TextureRect" type="TextureRect" parent="Icons/ReadmeContainer2"]
+margin_right = 149.0
+margin_bottom = 32.0
+texture = ExtResource( 20 )
+stretch_mode = 6
+script = ExtResource( 21 )
+idle_texture = ExtResource( 20 )
+
+[node name="ComputerDialog" type="WindowDialog" parent="Icons/ReadmeContainer2/TextureRect"]
+visible = true
+margin_left = 280.0
+margin_top = 37.0
+margin_right = 780.0
+margin_bottom = 372.0
+popup_exclusive = true
+window_title = "READ ME"
+resizable = true
+
+[node name="ColorRect" type="ColorRect" parent="Icons/ReadmeContainer2/TextureRect/ComputerDialog"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 12.5042, 8.88702 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Icons/ReadmeContainer2/TextureRect/ComputerDialog"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 12.4746, 8.91609 )
+
+[node name="Label" type="Label" parent="Icons/ReadmeContainer2/TextureRect/ComputerDialog/MarginContainer"]
+margin_top = 13.0
+margin_right = 40.0
+margin_bottom = 27.0
+autowrap = true
+
+[node name="Label" type="Label" parent="Icons/ReadmeContainer2/TextureRect/ComputerDialog"]
+margin_right = 500.0
+margin_bottom = 500.0
+custom_fonts/font = SubResource( 12 )
+text = "Anti-Bionics Important Report: After an overnight scan of your machine, we have found a file that is infected with a deadly computer virus. Due to the nature of this virus, the malware functions of Anti-Bionics have been disabled. In order to restore this functionality, the product key fragments have been hidden behind operations that cannot be completed by a computer. You must win, at least once, every game located on your desktop. The virus's progression will appear at the top of the screen with the key underneath. Now please hurry, before it’s too late!"
+autowrap = true
+
+[node name="Label" type="Label" parent="Icons/ReadmeContainer2"]
+margin_top = 36.0
+margin_right = 149.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 13 )
+text = "READ ME"
+align = 1
+
 [node name="Key_text" type="Label" parent="."]
 margin_left = 472.0
 margin_top = 24.0
@@ -538,3 +594,5 @@ script = ExtResource( 17 )
 [connection signal="mouse_exited" from="Icons/SnakeContainer/Snake" to="Icons/SnakeContainer/Snake" method="_on_Snake_mouse_exited"]
 [connection signal="button_up" from="Icons/SnakeContainer/Snake/SnakePopupTest/Menu/PlayBtn" to="Icons/SnakeContainer/Snake" method="_on_PlayBtn_button_up"]
 [connection signal="timeout" from="Icons/SnakeContainer/Snake/MoveTimer2" to="Icons/SnakeContainer/Snake" method="_on_MoveTimer2_timeout"]
+[connection signal="mouse_entered" from="Icons/ReadmeContainer2/TextureRect" to="Icons/ReadmeContainer2/TextureRect" method="_on_TextureRect_mouse_entered"]
+[connection signal="mouse_exited" from="Icons/ReadmeContainer2/TextureRect" to="Icons/ReadmeContainer2/TextureRect" method="_on_TextureRect_mouse_exited"]
