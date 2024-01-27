@@ -175,18 +175,26 @@ func check_out_of_bounds():
 		
 func end_game():
 	$MoveTimer2.stop()
-	game_started = false
 	lost = true
-	
 	for i in range(len(snake_data)):
 		snake[i].texture = null
-		
+	var current = global.get_percent_corrupted()
 	if score == winning_score:
-		already_won = true
-		$SnakePopupTest/Menu/WinStatus.text = "YOU WIN!"
+		$SnakeGameOverMenu/SnakeResultLabel.set_text("You Win!")
+		$SnakeGameOverMenu/SnakeResultLabel.ALIGN_CENTER
+		if already_won != true:
+			if current < 10:
+				global.set_percent_corrupted(0)
+			else:
+				global.set_percent_corrupted(current - 10)
+		if(!global.snake_has_triggered):
+			global.increment_key()
+			global.snake_has_triggered = true
 	else:
-		$SnakePopupTest/Menu/WinStatus.text = "GAME OVER!"
+		$SnakePopupTest/Menu/WinStatus.set_text("Game Over")
+		global.set_percent_corrupted(current+10)
 	$SnakePopupTest/Menu.show()
+	game_started = false
 
 func _on_PlayBtn_button_up():
 	$SnakePopupTest/Menu.hide()
