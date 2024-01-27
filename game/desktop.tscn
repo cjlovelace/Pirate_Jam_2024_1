@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://addons/github-integration/fonts/W95FA.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Clock.gd" type="Script" id=2]
@@ -17,6 +17,8 @@
 [ext_resource path="res://ColorRect2.gd" type="Script" id=15]
 [ext_resource path="res://Icons.gd" type="Script" id=16]
 [ext_resource path="res://Key_text.gd" type="Script" id=17]
+[ext_resource path="res://snakebackground.png" type="Texture" id=18]
+[ext_resource path="res://apple.png" type="Texture" id=19]
 
 [sub_resource type="DynamicFont" id=1]
 outline_color = Color( 0, 0, 0, 1 )
@@ -54,6 +56,24 @@ bg_color = Color( 0.831373, 0.815686, 0.784314, 1 )
 
 [sub_resource type="DynamicFont" id=8]
 size = 29
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 28
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.294118, 0.0392157, 0.309804, 1 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 34
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 19
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=9]
@@ -414,15 +434,77 @@ stretch_mode = 6
 script = ExtResource( 14 )
 idle_texture = ExtResource( 13 )
 
-[node name="SnakeDialog" type="WindowDialog" parent="Icons/SnakeContainer/Snake"]
+[node name="SnakePopupTest" type="WindowDialog" parent="Icons/SnakeContainer/Snake"]
 visible = true
-margin_left = 363.0
-margin_top = 48.0
-margin_right = 863.0
-margin_bottom = 403.0
+margin_top = 62.0
+margin_right = 502.0
+margin_bottom = 415.0
 popup_exclusive = true
-window_title = "Serpent"
-resizable = true
+
+[node name="Sprite" type="Sprite" parent="Icons/SnakeContainer/Snake/SnakePopupTest"]
+position = Vector2( 250, 177 )
+texture = ExtResource( 18 )
+
+[node name="SnakeBox" type="VBoxContainer" parent="Icons/SnakeContainer/Snake/SnakePopupTest/Sprite"]
+margin_left = -249.0
+margin_top = -140.0
+margin_right = 250.0
+margin_bottom = 178.0
+
+[node name="Food" type="Sprite" parent="Icons/SnakeContainer/Snake/SnakePopupTest/Sprite/SnakeBox"]
+position = Vector2( 113, 83 )
+texture = ExtResource( 19 )
+
+[node name="ScorePanel" type="Panel" parent="Icons/SnakeContainer/Snake/SnakePopupTest"]
+anchor_right = 1.0
+margin_left = -1.0
+margin_right = 1.0
+margin_bottom = 38.0
+custom_styles/panel = SubResource( 10 )
+
+[node name="ScoreLabel" type="Label" parent="Icons/SnakeContainer/Snake/SnakePopupTest"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -250.0
+margin_top = -1.0
+margin_right = 251.0
+margin_bottom = 39.0
+custom_fonts/font = SubResource( 11 )
+text = "Score: 0"
+align = 1
+valign = 1
+
+[node name="Menu" type="Panel" parent="Icons/SnakeContainer/Snake/SnakePopupTest"]
+margin_left = 82.0
+margin_top = 57.0
+margin_right = 419.0
+margin_bottom = 308.0
+custom_styles/panel = SubResource( 12 )
+
+[node name="WinStatus" type="Label" parent="Icons/SnakeContainer/Snake/SnakePopupTest/Menu"]
+margin_left = 67.0
+margin_top = 32.0
+margin_right = 268.0
+margin_bottom = 83.0
+custom_fonts/font = SubResource( 13 )
+text = "Game Over"
+align = 1
+uppercase = true
+
+[node name="PlayBtn" type="Button" parent="Icons/SnakeContainer/Snake/SnakePopupTest/Menu"]
+margin_left = 106.0
+margin_top = 142.0
+margin_right = 226.0
+margin_bottom = 182.0
+custom_fonts/font = SubResource( 14 )
+text = "Play Again"
+
+[node name="SnakeIcon" type="Sprite" parent="Icons/SnakeContainer/Snake/SnakePopupTest/Menu"]
+position = Vector2( 168, 103 )
+texture = ExtResource( 13 )
+
+[node name="MoveTimer2" type="Timer" parent="Icons/SnakeContainer/Snake"]
+wait_time = 0.1
 
 [node name="Label" type="Label" parent="Icons/SnakeContainer"]
 margin_top = 44.0
@@ -430,6 +512,9 @@ margin_right = 149.0
 margin_bottom = 58.0
 text = "Serpent"
 align = 1
+
+[node name="MoveTimer" type="Timer" parent="Icons/SnakeContainer"]
+wait_time = 0.1
 
 [node name="Key_text" type="Label" parent="."]
 margin_left = 472.0
@@ -451,5 +536,5 @@ script = ExtResource( 17 )
 [connection signal="focus_exited" from="Icons/SnakeContainer/Snake" to="Icons/SnakeContainer/Snake" method="_on_Snake_focus_exited"]
 [connection signal="mouse_entered" from="Icons/SnakeContainer/Snake" to="Icons/SnakeContainer/Snake" method="_on_Snake_mouse_entered"]
 [connection signal="mouse_exited" from="Icons/SnakeContainer/Snake" to="Icons/SnakeContainer/Snake" method="_on_Snake_mouse_exited"]
-[connection signal="focus_entered" from="Icons/SnakeContainer/Snake/SnakeDialog" to="Icons/SnakeContainer/Snake" method="_on_SnakeDialog_focus_entered"]
-[connection signal="mouse_entered" from="Icons/SnakeContainer/Snake/SnakeDialog" to="Icons/SnakeContainer/Snake" method="_on_SnakeDialog_mouse_entered"]
+[connection signal="button_up" from="Icons/SnakeContainer/Snake/SnakePopupTest/Menu/PlayBtn" to="Icons/SnakeContainer/Snake" method="_on_PlayBtn_button_up"]
+[connection signal="timeout" from="Icons/SnakeContainer/Snake/MoveTimer2" to="Icons/SnakeContainer/Snake" method="_on_MoveTimer2_timeout"]
